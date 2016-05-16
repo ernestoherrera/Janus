@@ -1,0 +1,8 @@
+C:\GitSource\Janus\Janus\src\JanusData\bin\Debug\JanusData.dll
+C:\GitSource\Janus\Janus\src\JanusData\bin\Debug\JanusData.pdb
+C:\GitSource\Janus\Janus\src\JanusData\obj\Debug\JanusData.dll
+C:\GitSource\Janus\Janus\src\JanusData\obj\Debug\JanusData.pdb
+C:\Source\Janus\src\Janus\JanusData\bin\Debug\JanusData.dll
+C:\Source\Janus\src\Janus\JanusData\bin\Debug\JanusData.pdb
+C:\Source\Janus\src\Janus\JanusData\obj\Debug\JanusData.dll
+C:\Source\Janus\src\Janus\JanusData\obj\Debug\JanusData.pdb

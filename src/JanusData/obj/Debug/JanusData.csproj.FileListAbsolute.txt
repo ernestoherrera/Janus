@@ -1,4 +1,0 @@
-C:\GitSource\Janus\Janus\src\JanusData\bin\Debug\JanusData.dll
-C:\GitSource\Janus\Janus\src\JanusData\bin\Debug\JanusData.pdb
-C:\GitSource\Janus\Janus\src\JanusData\obj\Debug\JanusData.dll
-C:\GitSource\Janus\Janus\src\JanusData\obj\Debug\JanusData.pdb
