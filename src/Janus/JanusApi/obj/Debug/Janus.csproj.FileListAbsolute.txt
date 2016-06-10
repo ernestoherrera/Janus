@@ -36,3 +36,5 @@ C:\Source\Janus\src\Janus\JanusApi\bin\Nancy.Hosting.Aspnet.xml
 C:\Source\Janus\src\Janus\JanusApi\obj\Debug\Janus.csprojResolveAssemblyReference.cache
 C:\Source\Janus\src\Janus\JanusApi\obj\Debug\Janus.dll
 C:\Source\Janus\src\Janus\JanusApi\obj\Debug\Janus.pdb
+C:\Source\Janus\src\Janus\JanusApi\bin\JanusCore.dll
+C:\Source\Janus\src\Janus\JanusApi\bin\JanusCore.pdb

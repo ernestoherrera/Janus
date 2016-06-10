@@ -27,7 +27,7 @@ namespace Janus
             //var databases = new List<string> { "Core", "History", "Reporting" };
             var databases = new List<string> { "FluentSqlTest" };
 
-            var dataMapper = new EntityMapper(dbConnection, typeof(IEntity), databases, null, false);
+            var dataMapper = new EntityMapper(dbConnection, typeof(IEntity), databases, null, false, OnPostMapping);
 
             foreach (var entity in EntityMapper.EntityMap.Keys)
             {
@@ -38,6 +38,14 @@ namespace Janus
         private string GetConnectionString()
         {
             return ConfigurationManager.ConnectionStrings["FluentSql"].ToString();
+        }
+
+        private void OnPostMapping()
+        {
+            foreach (var entity in EntityMapper.EntityMap.Keys)
+            {
+                var typeName = entity.Name;
+            }
         }
     }
 }
