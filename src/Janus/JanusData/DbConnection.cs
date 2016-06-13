@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Data.SqlClient;
+using JanusData.Support;
+using System.Configuration;
 
 namespace JanusData
 {
@@ -70,8 +72,24 @@ namespace JanusData
             dbConnection.Dispose();
         }
 
-        public DbConnection(string connectionString)
-        {            
+        public DbConnection(string connectionName = null)
+        {
+            if(connectionName == null)
+                connectionName = Constants.CONNECTION_NAME;
+
+            if (string.IsNullOrEmpty(connectionName))
+                throw new ApplicationException("Can not have an empty connection name.");
+
+            var connStringSettings = ConfigurationManager.ConnectionStrings[connectionName];
+
+            if (connStringSettings == null)
+                throw new ApplicationException(string.Format("There is no connection string with connection name {0}", connectionName));
+
+            var connectionString = connStringSettings.ConnectionString;
+
+            if (string.IsNullOrEmpty(connectionString))
+                throw new ApplicationException(string.Format("The connection name: {0} has an empty connection string.", connectionName));
+
             dbConnection = new SqlConnection(connectionString);
 
             dbConnection.Open();

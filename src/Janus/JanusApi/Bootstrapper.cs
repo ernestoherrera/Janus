@@ -11,6 +11,9 @@ using JanusData;
 using FluentSql.Mappers;
 using Dapper;
 using System.Configuration;
+using Nancy.Json;
+using Janus.Extensions;
+using Janus.Injection;
 
 namespace Janus
 {
@@ -23,16 +26,29 @@ namespace Janus
             var assembly = Assembly.Load("JanusData");
 
             var dbConnection = new DbConnection(GetConnectionString());
-
-            //var databases = new List<string> { "Core", "History", "Reporting" };
+           
             var databases = new List<string> { "FluentSqlTest" };
 
             var dataMapper = new EntityMapper(dbConnection, typeof(IEntity), databases, null, false, OnPostMapping);
 
-            foreach (var entity in EntityMapper.EntityMap.Keys)
+            dbConnection.Dispose();
+
+            JsonSettings.MaxJsonLength = int.MaxValue;
+            JsonSettings.PrimitiveConverters.Add(new NullableEnumConverter( new[] { assembly }));
+        }
+        protected override void ConfigureApplicationContainer(TinyIoCContainer container)
+        {
+            base.ConfigureApplicationContainer(container);
+
+            var assemblies = new[]
             {
-                var entityName = entity.ToString();
-            }
+                Assembly.Load("JanusData"),
+                Assembly.GetExecutingAssembly()
+            };
+
+            var injectionMapper = new InjectionMapper(assemblies);
+
+            injectionMapper.RegisterByAttribute(new InjectionContainer(container));
         }
 
         private string GetConnectionString()

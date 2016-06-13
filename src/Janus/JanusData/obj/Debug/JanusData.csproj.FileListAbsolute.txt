@@ -9,3 +9,8 @@ C:\Source\Janus\src\Janus\JanusData\obj\Debug\JanusData.pdb
 C:\Source\Janus\src\Janus\JanusData\obj\Debug\JanusData.csprojResolveAssemblyReference.cache
 C:\Source\Janus\src\Janus\JanusData\bin\Debug\JanusCore.dll
 C:\Source\Janus\src\Janus\JanusData\bin\Debug\JanusCore.pdb
+C:\Source\Janus\src\Janus\JanusData\bin\Debug\FluentSql.dll
+C:\Source\Janus\src\Janus\JanusData\bin\Debug\Dapper.dll
+C:\Source\Janus\src\Janus\JanusData\bin\Debug\FluentSql.pdb
+C:\Source\Janus\src\Janus\JanusData\bin\Debug\Dapper.pdb
+C:\Source\Janus\src\Janus\JanusData\bin\Debug\Dapper.xml

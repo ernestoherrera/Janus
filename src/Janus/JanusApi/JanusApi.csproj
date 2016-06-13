@@ -78,9 +78,19 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthenticationModule.cs" />
+    <Compile Include="Authentication\AuthenticatedUser.cs" />
+    <Compile Include="Authentication\AuthenticationHelper.cs" />
+    <Compile Include="Authentication\AuthenticationResponse.cs" />
+    <Compile Include="Authentication\LoginRequest.cs" />
+    <Compile Include="Authentication\RequestInfo.cs" />
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Extensions\NullableEnumConverter.cs" />
+    <Compile Include="Injection\InjectionContainer.cs" />
+    <Compile Include="Injection\InjectionMapper.cs" />
     <Compile Include="Modules\HelloNancyModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Support\Constants.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -96,9 +106,17 @@
       <Project>{05aaac89-62cf-4efd-9583-22f834c14356}</Project>
       <Name>FluentSql</Name>
     </ProjectReference>
+    <ProjectReference Include="..\JanusCore\JanusCore.csproj">
+      <Project>{e10de60f-f5b9-49bc-95d6-4cf7c4389772}</Project>
+      <Name>JanusCore</Name>
+    </ProjectReference>
     <ProjectReference Include="..\JanusData\JanusData.csproj">
       <Project>{33220c72-21c9-42d4-90ef-d065aae84f4e}</Project>
       <Name>JanusData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JanusModels\JanusModels.csproj">
+      <Project>{569c88dd-0f00-48c6-aa3b-0b0fc5e06aa9}</Project>
+      <Name>JanusModels</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

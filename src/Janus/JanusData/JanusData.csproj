@@ -42,17 +42,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbConnection.cs" />
+    <Compile Include="Factories\GenericFactory.cs" />
+    <Compile Include="Interfaces\ICacheRepository.cs" />
     <Compile Include="IEntity.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="Repositories\RepositoryCacheProvider.cs" />
+    <Compile Include="Repositories\RepositoryFactoryProvider.cs" />
+    <Compile Include="Repositories\RepositoryProvider.cs" />
     <Compile Include="Support\Constants.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Factories\" />
-    <Folder Include="Interfaces\" />
-    <Folder Include="Repositories\" />
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\FluentSql\FluentSql\FluentSql\FluentSql.csproj">
+      <Project>{05aaac89-62cf-4efd-9583-22f834c14356}</Project>
+      <Name>FluentSql</Name>
+    </ProjectReference>
     <ProjectReference Include="..\JanusCore\JanusCore.csproj">
       <Project>{e10de60f-f5b9-49bc-95d6-4cf7c4389772}</Project>
       <Name>JanusCore</Name>
