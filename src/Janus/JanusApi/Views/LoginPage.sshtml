@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+<form action="Authentication" method="post">
+<div>
+<span>user name: </span> <input name='username' />
+</div>
+<div>
+<span>password: </span> <input name='password' type='password' />
+</div>
+<div><input type="Submit"  value="Submit" />
+</form>
+</body>
+</html>

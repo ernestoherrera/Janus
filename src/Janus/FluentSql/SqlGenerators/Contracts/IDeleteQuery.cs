@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JanusData
+namespace FluentSql.SqlGenerators.Contracts
 {
-    public interface IEntity
+    public interface IDeleteQuery<T> : IQuery<T>
     {
+        T Entity { get; }
     }
 }

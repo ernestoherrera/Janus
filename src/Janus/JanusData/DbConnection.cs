@@ -72,10 +72,9 @@ namespace JanusData
             dbConnection.Dispose();
         }
 
-        public DbConnection(string connectionName = null)
-        {
-            if(connectionName == null)
-                connectionName = Constants.CONNECTION_NAME;
+        public DbConnection()
+        {            
+            var connectionName = Constants.CONNECTION_NAME;
 
             if (string.IsNullOrEmpty(connectionName))
                 throw new ApplicationException("Can not have an empty connection name.");

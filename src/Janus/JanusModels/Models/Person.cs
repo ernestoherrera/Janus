@@ -21,6 +21,8 @@ namespace JanusModels.Models
 
         public string Suffix { get; set; }
 
+        public string UserName { get; set; }
+
         public string Title { get; set; }
 
         public string Company { get; set; }
@@ -34,6 +36,40 @@ namespace JanusModels.Models
         public int Type { get; set; }
 
         public bool Enabled { get; set; }
+
+        public string ApiKey { get; set; }
+
+        public string Email { get; set; }
+
+        public DateTime? LastLogin { get; set; }
+
+        public bool ForceReset { get; set; }
+
+        public string IpSecurityMask { get; set; }
+
+        public long? RoleMask { get; set; }
+
+        public bool Deleted { get; set; }
+
+        public DateTime? DeletedDate { get; set; }
+
+        public DateTime? LastLogout { get; set; }
+
+        public bool IsRestricted { get; set; }
+
+        public string AccessKey { get; set; }
+
+        public string SecretKey { get; set; }
+
+        public string Password { get; set; }
+
+        public DateTime? PasswordExpiration { get; set; }
+
+        public int? PasswordExpirationInterval { get; set; }
+
+        public bool PreventEmulation { get; set; }
+
+        public int? CardLastFour { get; set; }
 
         public string FacebookUserId { get; set; }
 

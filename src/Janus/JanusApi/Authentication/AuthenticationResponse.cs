@@ -16,7 +16,7 @@ namespace Janus.Authentication
         public bool Success { get; }
         public string Message { get; }
 
-        public AuthenticationResponse(User user, string token, bool isTemporary)
+        public AuthenticationResponse(Person user, string token, bool isTemporary)
         {
             Success = user != null;
 

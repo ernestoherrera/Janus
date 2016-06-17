@@ -5,9 +5,9 @@ using JanusData.Repositories;
 using JanusModels.Models;
 using Nancy;
 using Nancy.ModelBinding;
+using System.Linq;
 
-
-namespace Janus
+namespace Janus.Modules
 {
     public class AuthenticationModule : NancyModule
     {
@@ -22,7 +22,8 @@ namespace Janus
             {
                 var loginRequest = this.Bind<LoginRequest>();
                 var repo = factory.Get<Repository>();
-                var user = await repo.FindSingleAsync<User>(u => u.UserName == loginRequest.username);
+                var persons = repo.Find<Person>(u => u.UserName == loginRequest.username);
+                var user = persons.FirstOrDefault();
 
                 if (user == null)
                     return Response.AsJson(new AuthenticationResponse(false, FAILED_AUTHENTICATION));
@@ -35,13 +36,13 @@ namespace Janus
 
                 var hashedPassword = AuthenticationHelper.HashPassword(loginRequest.password, loginRequest.username);
 
-                //if(user.Password != null && user.Password != hashedPassword)
-                //{
-                //    //TODO: LOG the failed attempt to log in
-                //    Response.AsJson(new AuthenticationResponse(false, FAILED_AUTHENTICATION));
-                //}
+                if (user.Password != null && user.Password != hashedPassword)
+                {
+                    //TODO: LOG the failed attempt to log in
+                    Response.AsJson(new AuthenticationResponse(false, FAILED_AUTHENTICATION));
+                }
 
-                if (user.ApiKey == null)
+                if (user == null)
                 {
                     var authHelper = factory.Get<AuthenticationHelper>();
                     var apiKey = await authHelper.GenerateUniqueAccessToken();
@@ -53,7 +54,7 @@ namespace Janus
                     }
 
                     user.ApiKey = apiKey;
-                    repo.Update<User>(user);
+                    repo.Update<Person>(user);
 
                 }
 

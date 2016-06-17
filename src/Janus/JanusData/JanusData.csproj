@@ -44,9 +44,7 @@
     <Compile Include="DbConnection.cs" />
     <Compile Include="Factories\GenericFactory.cs" />
     <Compile Include="Interfaces\ICacheRepository.cs" />
-    <Compile Include="IEntity.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
-    <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\RepositoryCacheProvider.cs" />
@@ -54,9 +52,8 @@
     <Compile Include="Repositories\RepositoryProvider.cs" />
     <Compile Include="Support\Constants.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\FluentSql\FluentSql\FluentSql\FluentSql.csproj">
+    <ProjectReference Include="..\FluentSql\FluentSql.csproj">
       <Project>{05aaac89-62cf-4efd-9583-22f834c14356}</Project>
       <Name>FluentSql</Name>
     </ProjectReference>
@@ -64,6 +61,9 @@
       <Project>{e10de60f-f5b9-49bc-95d6-4cf7c4389772}</Project>
       <Name>JanusCore</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

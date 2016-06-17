@@ -66,11 +66,6 @@ namespace JanusData.Repositories
             throw new NotImplementedException();
         }
 
-        public IEnumerable<T> Find<T>(Expression<Func<T, bool>> predicate)
-        {
-            throw new NotImplementedException();
-        }
-
         public IEnumerable<T> FindAll<T>()
         {
             throw new NotImplementedException();
@@ -111,11 +106,11 @@ namespace JanusData.Repositories
         //    return await EntityStore.GetAsync<T>(predicateExpression);
         //}
 
-        //public IEnumerable<T> Find<T>(Expression<Func<T, bool>> predicateExpression)
-        //{
-        //    var entities = EntityStore.Get<T>(predicateExpression);
-        //    return entities;
-        //}
+        public IEnumerable<T> Find<T>(Expression<Func<T, bool>> predicateExpression)
+        {
+            var entities = EntityStore.Get<T>(predicateExpression);
+            return entities;
+        }
 
         //public IEnumerable<T> FindAndOrderby<T>(Expression<Func<T, bool>> predicateExpression, Expression<Func<T, object>> orderByExpression)
         //{
