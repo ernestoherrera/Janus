@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JanusCore", "..\JanusCore\J
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JanusModels", "..\JanusModels\JanusModels.csproj", "{569C88DD-0F00-48C6-AA3B-0B0FC5E06AA9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentSql", "..\FluentSql\FluentSql.csproj", "{05AAAC89-62CF-4EFD-9583-22F834C14356}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentSql", "..\..\..\..\FluentSql\FluentSql\FluentSql\FluentSql.csproj", "{05AAAC89-62CF-4EFD-9583-22F834C14356}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

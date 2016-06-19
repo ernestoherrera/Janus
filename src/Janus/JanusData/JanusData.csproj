@@ -53,7 +53,7 @@
     <Compile Include="Support\Constants.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FluentSql\FluentSql.csproj">
+    <ProjectReference Include="..\..\..\..\FluentSql\FluentSql\FluentSql\FluentSql.csproj">
       <Project>{05aaac89-62cf-4efd-9583-22f834c14356}</Project>
       <Name>FluentSql</Name>
     </ProjectReference>

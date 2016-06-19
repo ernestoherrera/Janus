@@ -25,8 +25,8 @@ namespace Janus.Authentication
 
             if (user != null)
             {
-                Username = user.UserName;
-                FullName = string.Format("{0} {1}", user.UserName, user.UserName).Trim();
+                Username = user.Username;
+                FullName = string.Format("{0} {1}", user.Username, user.Username).Trim();
             }
         }
 

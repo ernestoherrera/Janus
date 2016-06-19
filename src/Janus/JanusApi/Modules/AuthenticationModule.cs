@@ -22,7 +22,7 @@ namespace Janus.Modules
             {
                 var loginRequest = this.Bind<LoginRequest>();
                 var repo = factory.Get<Repository>();
-                var persons = repo.Find<Person>(u => u.UserName == loginRequest.username);
+                var persons = repo.Find<Person>(u => u.Username == loginRequest.username);
                 var user = persons.FirstOrDefault();
 
                 if (user == null)
