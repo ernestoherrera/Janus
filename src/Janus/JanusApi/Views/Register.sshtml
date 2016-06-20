@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<meta charset="utf-8" />
+</head>
+<body>
+<span> Register </span>
+
+<style>
+
+	body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+</style>
+	<form action="AddUser" method="post">
+		   <hr />
+		  <div class="form-group">
+				<label class="col-md-2 control-label" for="usermame">User Name: </label>
+				<div class="col-md-10">
+					<input class="form-control" data-val="true" id="username" name="username" type="text" value="" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-2 control-label" for="password">Password</label>
+				<div class="col-md-10">
+					<input class="form-control" data-val="true" data-val-length="The Password must be at least 6 characters long." data-val-length-max="100" data-val-length-min="6" data-val-required="The Password field is required." id="password" name="password" type="password" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-2 control-label" for="confirmpassword">Confirm password</label>
+				<div class="col-md-10">
+					<input class="form-control" data-val="true" data-val-equalto="The password and confirmation password do not match." data-val-equalto-other="*.Password" id="confirmpassword" name="confirmpassword" type="password" />
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-offset-2 col-md-10">
+					<input type="submit" class="btn btn-default" value="Register" />
+				</div>
+			</div>
+
+	</form>
+
+</body>
+</html>

@@ -28,13 +28,16 @@ namespace Janus.Modules
                 if (user == null)
                     return Response.AsJson(new AuthenticationResponse(false, FAILED_AUTHENTICATION));
 
+                if (user.Password == null)
+                    Response.AsJson(new AuthenticationResponse(false, FAILED_AUTHENTICATION));
+
                 if (Constants.DISABLE_LOGIN_AUTHENTICATION)
                 {
                     //TODO: Log this most unlikely scenario. Only Dev 
                     return Response.AsText(BYPASS_AUTHENTICATION);
                 }
 
-                var hashedPassword = AuthenticationHelper.HashPassword(loginRequest.password, loginRequest.username);
+                var hashedPassword = AuthenticationHelper.HashPassword(loginRequest.password, loginRequest.username);                
 
                 if (user.Password != null && user.Password != hashedPassword)
                 {
