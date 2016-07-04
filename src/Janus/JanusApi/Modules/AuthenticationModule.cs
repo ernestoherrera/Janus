@@ -26,9 +26,8 @@ namespace Janus.Modules
                 var store = factory.Get<EntityStore>();
 
                 var persons = repo.Find<Person>(u => u.Username == loginRequest.username);
-                var user = persons.FirstOrDefault();
-
-                var person = store.GetByKey<Person>(user.Id);
+                var user = persons.FirstOrDefault();                
+                
 
                 if (user == null)
                     return Response.AsJson(new AuthenticationResponse(false, FAILED_AUTHENTICATION));
