@@ -1,6 +1,8 @@
 ﻿using FluentSql;
+using FluentSql.Mappers;
 using Janus.Authentication;
 using Janus.Support;
+using JanusData;
 using JanusData.Factories;
 using JanusData.Repositories;
 using JanusModels.Models;
@@ -25,15 +27,13 @@ namespace Janus.Modules
                 var repo = factory.Get<Repository>();
                 var store = factory.Get<EntityStore>();
 
-                var persons = repo.Find<Person>(u => u.Username == loginRequest.username);
-                var user = persons.FirstOrDefault();                
-                
+                var user = store.GetSingle<Person>(p => p.Username == loginRequest.username);                
 
                 if (user == null)
                     return Response.AsJson(new AuthenticationResponse(false, FAILED_AUTHENTICATION));
 
                 if (user.Password == null)
-                    Response.AsJson(new AuthenticationResponse(false, FAILED_AUTHENTICATION));
+                    return Response.AsJson(new AuthenticationResponse(false, FAILED_AUTHENTICATION));
 
                 if (Constants.DISABLE_LOGIN_AUTHENTICATION)
                 {
@@ -46,10 +46,10 @@ namespace Janus.Modules
                 if (user.Password != null && user.Password != hashedPassword)
                 {
                     //TODO: LOG the failed attempt to log in
-                    Response.AsJson(new AuthenticationResponse(false, FAILED_AUTHENTICATION));
+                    return Response.AsJson(new AuthenticationResponse(false, FAILED_AUTHENTICATION));
                 }
 
-                if (user == null)
+                if (user.ApiKey == null)
                 {
                     var authHelper = factory.Get<AuthenticationHelper>();
                     var apiKey = await authHelper.GenerateUniqueAccessToken();
@@ -57,12 +57,11 @@ namespace Janus.Modules
                     if (string.IsNullOrEmpty(apiKey))
                     {
                         //TODO: Log failed token creationg
-                        Response.AsJson(new AuthenticationResponse(false, FAILED_AUTHENTICATION));
+                        return Response.AsJson(new AuthenticationResponse(false, FAILED_AUTHENTICATION));
                     }
 
                     user.ApiKey = apiKey;
                     repo.Update<Person>(user);
-
                 }
 
                 //TODO: LOG successful login AUTHENTICATION_SUCCESSFUL

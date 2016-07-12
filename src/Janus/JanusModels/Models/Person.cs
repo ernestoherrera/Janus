@@ -21,7 +21,7 @@ namespace JanusModels.Models
 
         public string Suffix { get; set; }
 
-        public string Username { get; set; }
+        public string Username { get; set; }       
 
         public string Title { get; set; }
 
