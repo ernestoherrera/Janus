@@ -2,4 +2,3 @@ C:\Source\Janus\src\Janus\JanusModels\bin\Debug\JanusModels.dll
 C:\Source\Janus\src\Janus\JanusModels\bin\Debug\JanusModels.pdb
 C:\Source\Janus\src\Janus\JanusModels\obj\Debug\JanusModels.dll
 C:\Source\Janus\src\Janus\JanusModels\obj\Debug\JanusModels.pdb
-C:\Source\Janus\src\Janus\JanusModels\obj\Debug\JanusModels.csprojResolveAssemblyReference.cache

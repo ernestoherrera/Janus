@@ -1,4 +1,6 @@
-﻿using JanusCore.Extensions;
+﻿using FluentSql;
+using FluentSql.Contracts;
+using JanusCore.Extensions;
 using JanusData.Factories;
 using JanusData.Repositories;
 using JanusModels.Models;
@@ -55,8 +57,8 @@ namespace Janus.Authentication
         {
             string token = null;
             var topSearchNumber = 10;
-            var repo = Factory.Get<Repository>();
-            User userWithSameToken = null;
+            var store = Factory.Get<EntityStore>();
+            Person userWithSameToken = null;
             var iCounter = 0;
 
             do
@@ -65,7 +67,7 @@ namespace Janus.Authentication
 
                 token = GenerateAuthorizationToken();
 
-                userWithSameToken = await repo.FindSingleAsync<User>(u => u.ApiKey == token);
+                userWithSameToken = await store.GetSingleAsync<Person>(u => u.ApiKey == token);
 
             }
             while (userWithSameToken != null && iCounter <= topSearchNumber);

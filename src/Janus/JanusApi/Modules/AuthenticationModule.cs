@@ -23,8 +23,7 @@ namespace Janus.Modules
         {
             Post["/Authentication", runAsync: true] = async (_, ct) =>
             {
-                var loginRequest = this.Bind<LoginRequest>();
-                var repo = factory.Get<Repository>();
+                var loginRequest = this.Bind<LoginRequest>();                
                 var store = factory.Get<EntityStore>();
 
                 var user = store.GetSingle<Person>(p => p.Username == loginRequest.username);                
@@ -61,7 +60,7 @@ namespace Janus.Modules
                     }
 
                     user.ApiKey = apiKey;
-                    repo.Update<Person>(user);
+                    store.Update<Person>(user);
                 }
 
                 //TODO: LOG successful login AUTHENTICATION_SUCCESSFUL
